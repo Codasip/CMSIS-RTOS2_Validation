@@ -39,6 +39,25 @@ Currently, the following tests are executed in the [CMSIS_RV2](./.github/workflo
 | RTX5     |  ARMCM55  | AC6, GCC, CLANG |
 | RTX5     |  ARMCM85  | AC6, GCC, CLANG |
 
+## Codasip RISC-V Ports Validation
+
+**Codasip** have ported RTX5 and CMSIS-FreeRTOS to RISC-V (32-bit) cores with the Codasip CLIC interrupt controller.
+
+`RV2_Thread.c` has been modified to doubled the test stack size to 256 bytes for RISC-V as there are twice the number of register to save on the stack (31 for RISC-V, 16 for ARM).
+There is also a minor fix for `TC_osThreadGetName_1()` to get it to pass with CMSIS-FreeRTOS.
+
+The following RTOS/Platform combinations have been validated:
+
+| RTOS     |  Device   | Compiler         | Tests Executed | Tests Passed | Notes  |
+|----------|-----------|------------------|----------------|--------------|--------|
+| FreeRTOS |  L110     | L110, GCC, CLANG |            139 |          137 |    [1] |
+| RTX5     |  L110     | L110, GCC, CLANG |            161 |          161 |    [2] |
+
+__Notes__
+
+- [1] FreeRTOS is not fully compatible with CMSIS-RTOS2, so some tests are not executed and some fail, the RISC-V port validation suite test results are the same as for ARM, see: https://arm-software.github.io/CMSIS-FreeRTOS/v11.0.1/tech_data.html
+- [2] All of the Validation Suite Tests pass.
+
 ## License
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
