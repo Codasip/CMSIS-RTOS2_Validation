@@ -50,7 +50,7 @@ The following RTOS/Platform combinations have been validated:
 
 | RTOS     |  Device   | Compiler         | Tests Executed | Tests Passed | Notes  |
 |----------|-----------|------------------|----------------|--------------|--------|
-| FreeRTOS |  L110     | L110, GCC, CLANG |            139 |          137 |    [1] |
+| FreeRTOS |  L110     | L110, GCC, CLANG |            139 |          136 |    [1] |
 | RTX5     |  L110     | L110, GCC, CLANG |            161 |          161 |    [2] |
 
 __Notes__
