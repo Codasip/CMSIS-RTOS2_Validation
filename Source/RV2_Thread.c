@@ -1699,7 +1699,7 @@ void TC_osThreadGetStackSpace_1 (void) {
   ASSERT_TRUE (size < TEST_STACK_SIZE);
   ASSERT_TRUE (size > 0U);
 
-  // osThreadTerminate (id); // Why is this thread being terminated here, when its id is used below??
+  osThreadTerminate (id);
 
   /* Call osThreadGetStackSpace from ISR */
   TST_IRQHandler = Irq_osThreadGetStackSpace_1;
